@@ -1,399 +1,154 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap');
+
+/* Головні кольори Kalyna UA:
+   Червоний (Калина): #b30000, #ff0000
+   Золотий (UA): #ffcc00
+*/
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	user-select: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
 }
+
 body {
-	color: #fff;
-	user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	overflow: hidden;
-	margin: 0;
-	white-space: nowrap;
-	font-family: 'Roboto', sans-serif;
+    color: #fff;
+    overflow: hidden;
+    margin: 0;
+    white-space: nowrap;
+    font-family: 'Roboto', sans-serif;
 }
-body,
-html {
-	width: 100%;
-	height: 100%;
-	
+
+body, html {
+    width: 100%;
+    height: 100%;
 }
+
+/* Контейнери верхньої частини */
 .hud-container {
-	position: absolute;
-	top: 3%;
-	width: 90px;
-	height: 80px;
-	display: flex;
-	font-size: 16px;
-	right: 0%;
+    position: absolute;
+    top: 3%;
+    width: 90px;
+    height: 80px;
+    display: flex;
+    font-size: 16px;
+    right: 0%;
 }
+
 .hud_logo {
-	width: 80px;
-	height: 80px;
-	right: 30px;
-	top: -5px;
-	position: absolute;
+    width: 80px;
+    height: 80px;
+    right: 30px;
+    top: -5px;
+    position: absolute;
 }
+
 .server-container {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	position: absolute;
-	right: 130px;
-	top: 10px;
-}
-.server-time {
-	display: flex;
-	align-items: center;
-	position: relative;
-	left: -50%;
-}
-.multiplier-container {
-	display: flex;
-	align-items: center;
-	position: relative;
-	left: -80%;
-}
-.server-time svg {
-	fill: white;
-	position: relative;
-	margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 130px;
+    top: 10px;
 }
 
-.server-playerid {
-	display: flex;
-	align-items: center;
-	position: relative;
-	left: -20%;
-}
-#hud-container::after {
-	content: '';
-	position: absolute;
-	width: 2px;
-	height: 80%;
-	background-color: #fff;
-	right: 130px;
-}
-.server-online {
-	display: flex;
-	align-items: center;
-	position: relative;
-	left: -35%;
-	top: 15%;
-}
-
-.server-online svg {
-	fill: white;
-	position: relative;
-	margin-right: 10px;
-}
+/* Акцентні блоки (Зброя та Множник) - ЗАМІНЕНО НА ЧЕРВОНИЙ КАЛИНОВИЙ */
 .weapon-container {
-	position: absolute;
-	top: 100px;
-	right: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 10px;
-	width: 120px;
-	height: 70px;
-	background-color: transparent;
-	font-size: 20px;
-	background-image: linear-gradient(to right, #0072ff, #00c6ff);
-
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 120px;
+    height: 70px;
+    background-image: linear-gradient(135deg, #b30000, #660000); /* Калина */
+    box-shadow: 0px 4px 10px rgba(179, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .multiplier {
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-	width: 35px;
-	height: 35px;
-	background-color: transparent;
-	font-size: 15px;
-	background-image: linear-gradient(to right, #0072ff, #00c6ff);
-
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.weapon-container img {
-	width: 60px;
-	height: 60px;
-}
-.users-container {
-	position: absolute;
-	top: 80px;
-	right: 180px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	border-radius: 5px;
-	width: 220px;
-	height: auto;
-	font-size: 20px;
-	padding: 10px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 15px;
+    background-image: linear-gradient(135deg, #ffcc00, #ff9900); /* Золотий акцент */
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hud__contentbar {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-	width: 20vh;
-}
-.hud__bar_item {
-	color: white;
-	font-weight: 500;
-	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
-	align-items: center;
-	padding: 0.95vh 1vh;
-}
-.hud__bar_img {
-	width: 2vh;
-	height: 1.5vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	align-content: center;
-	margin-left: 10px;
-}
-.hud__nbar {
-	width: 19vh;
-	height: 1.2vh;
-	border-radius: 0.4vh;
-	background-color: rgba(0, 0, 0, 0.1);
-	position: relative;
-}
-
+/* Смужки HP / Броні */
 .hud__nbar .hp {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	transition: 0.3s;
-	border-radius: 0.4vh;
-	background-color: rgba(255, 51, 51, 1);
+    background-color: #e60000; /* Червоний */
 }
+
 .hud__nbar .ap {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	transition: 0.3s;
-	border-radius: 0.4vh;
-	background-color: #0171ff;
+    background-color: #ffcc00; /* Золотий (UA) замість синього */
 }
+
 .hud__nbar .ep {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	transition: 0.3s;
-	border-radius: 0.4vh;
-	background-color: #78be25;
+    background-color: #2ecc71; /* Виноградний/зелений листок калини */
 }
-.hud__nbar .vp {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	transition: 0.3s;
-	border-radius: 0.4vh;
-	background-color: #ddff33;
-}
-.weapon-ammo {
-	position: absolute;
-	top: 190px;
-	right: 45px;
-}
+
+/* Гроші та Банк */
 .info-player {
-	position: absolute;
-	top: 22vh;
-	margin-left: 15vw;
-}
-.user-money,
-.user-bank {
-	font-family: 'Roboto', sans-serif;
-	font-size: 1.8vw;
-	font-weight: bold;
-	display: flex;
-	align-items: center;
-}
-.user-money img,
-.user-bank img {
-	width: 2.5vh;
-	height: 4vh;
-	margin-left: 10px;
-	order: 2;
-}
-.user-bank {
-	margin-top: 20px;
+    position: absolute;
+    top: 22vh;
+    left: 20px; /* Перенесено вліво за вашим запитом */
 }
 
-.stars-info {
-	position: relative;
-	margin-top: 10px;
-	margin-right: 10px;
+.user-money {
+    color: #2ecc71; /* Гроші залишаємо зеленими для читаємості */
+    font-size: 1.8vw;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
-.stars-active {
-	filter: invert(33%) sepia(100%) saturate(2000%) hue-rotate(190deg)
-		brightness(90%) contrast(100%);
+
+.user-bank {
+    color: #ffcc00; /* Банк золотий */
+    font-size: 1.5vw;
+    margin-top: 10px;
 }
+
+/* Панель підказок (зліва по середині) */
 .help-panel {
-	position: absolute;
-	top: 50%;
-	left: 20px;
-	transform: translateY(-50%);
-	font-family: 'Roboto', sans-serif;
-	font-size: 14px;
-	color: #fff;
-	text-shadow: 1px 1px 4px #000;
-}
-
-.help-line {
-	margin-top: 5px;
-	display: flex;
-	align-items: center;
-}
-
-.help-line:first-child {
-	margin-top: 0px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid #b30000; /* Калинова лінія */
 }
 
 .help-key {
-	min-width: 20px;
-	padding: 2px 4px;
-	margin-right: 5px;
-	background: rgba(0, 0, 0, 0.4);
-	border-radius: 5px;
-	text-transform: uppercase;
-	text-align: center;
-}
-#bottomInfoPanel {
-	position: absolute;
-	display: flex;
-}
-.fps {
-	position: absolute;
-	display: flex;
-}
-#location {
-	width: auto;
-	height: 1.8vw;
-	margin-top: 0.7vw;
-	display: flex;
-	background-color: rgba(0, 0, 0, 0.5);
-	padding: 0.5vw;
-	align-items: center;
-	justify-content: space-around;
-	box-sizing: border-box;
-}
-#location .city {
-	font-family: Montserrat;
-	font-size: 0.8vw;
-	color: white;
-	font-weight: 800;
-	margin-right: 0.8vw;
-}
-#location .address {
-	font-family: Montserrat;
-	font-size: 0.7vw;
-	font-weight: 600;
-	color: rgba(255, 255, 255, 0.5);
-}
-.animateOpacityOn {
-	opacity: 0;
-	animation: open 1s;
-	animation-fill-mode: forwards;
-}
-.car-hud {
-	position: absolute;
-	right: 1vw;
-	bottom: 0;
-	width: 18vw;
-	text-align: center;
-	transform: scale(0.86);
-	font-family: 'Roboto', sans-serif;
-}
-.car-hud .speed {
-	width: 15.5vw;
-	height: 15.5vw;
-	font-family: 'Roboto', sans-serif;
-	font-weight: bold;
-}
-.car-hud .engine {
-	width: 3.5vw;
-	height: 17.7vw;
-	margin: 0 -2.3vw;
-	transform: rotate(0deg);
-	font-family: 'Roboto', sans-serif;
-}
-.car-hud .fuel {
-	width: 3.5vw;
-	height: 17.7vw;
-	margin: 0 -2.3vw;
-	transform: rotate(161deg);
-	font-family: 'Roboto', sans-serif;
-}
-.car-hud .speed-info {
-	margin: 0 0 -12.5vw 0;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 500;
-	color: white;
-}
-.car-hud .speed-info .info {
-	line-height: 1.8vw;
-}
-.car-hud .speed-info .info p:first-child {
-	font-size: 2.3vw;
-}
-.car-hud .speed-info .info p:last-child {
-	font-size: 0.8vw;
-	opacity: 0.4;
-}
-.car-hud .speed-info .info-car {
-	display: flex;
-	justify-content: center;
-}
-.car-hud .speed-info .info-car .bulb {
-	margin: 0 0.5vw;
-}
-.car-hud .speed-info .info-car .bulb svg {
-	width: 1.3vw;
-	height: 1.6vw;
-}
-.car-hud .speed-info .info-car .bulb:first-child .active path {
-	fill: rgb(30, 255, 0);
-}
-.car-hud .speed-info .info-car .bulb:nth-child(2) .active path {
-	fill: rgb(255, 0, 0);
-}
-.car-hud .speed-info .info-car .bulb:last-child .active path {
-	fill: rgb(255, 153, 0);
-}
-.car-hud .engine-icon {
-	width: 1.6vw;
-	height: 1.6vw;
-	position: absolute;
-	bottom: 1.3vw;
-}
-.car-hud .fuel-icon {
-	width: 1.8vw;
-	height: 1.8vw;
-	position: absolute;
-	bottom: 1vw;
+    background: #fff;
+    color: #b30000; /* Текст клавіші червоний */
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-right: 8px;
+    box-shadow: 0 2px 0 #999;
 }
 
-@keyframes open {
-	100% {
-		opacity: 1;
-	}
+/* Розішування зірок розшуку */
+.stars-active {
+    filter: sepia(100%) saturate(500%) hue-rotate(-50deg) brightness(90%); /* Червоний відтінок для зірок */
+}
+
+/* Спідометр та авто-худу */
+.car-hud .speed-info .info-car .bulb:first-child .active path {
+    fill: #ffcc00; /* Фари золотисті */
 }
